@@ -1,0 +1,154 @@
+<app-header></app-header>
+<div *ngIf='display; else elseBlk'  class="text-center" style="margin-top: 5%;"> 
+    <button (click)='addTrue()' class="btn btn-outline-secondary">Add Post</button>
+    <button (click)='deleteTrue()' class="btn btn-outline-secondary">Delete Post</button>
+    <button class="btn btn-outline-secondary"><a routerLink="/logout">Logout</a></button>
+</div>
+<ng-template #elseBlk>
+        <div class="text-center" style="margin-top: 22%;">
+                <button (click)='addTrue()' class="btn btn-outline-secondary">Add Post</button>
+                <button (click)='deleteTrue()' class="btn btn-outline-secondary">Delete Post</button>
+                <button class="btn btn-outline-secondary"><a routerLink="/logout">Logout</a></button>
+        </div>
+</ng-template>
+<div *ngIf='add'>
+    <div *ngIf='display'>
+                <div class="modal-dialog" >
+                                <div class="modal-content" style="background-color: burlywood;">
+                                        <div class="modal-heading">
+                                                <h2 class="text-center">Add Post Here</h2>
+                                        </div>
+                                        <hr />
+                                        <div class="modal-body">
+                                                <form action="" role="form">
+                                                        <div class="form-group">
+                                                                <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-user"></span>
+                                                                        </span>
+                                                                        <input type="text" name="headline" class="form-control" [(ngModel)]="headline" placeholder="Title">
+                                                                </div>
+                                                        </div>
+                                                        
+                                                        <div class="form-group">
+                                                                <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-lock"></span>
+                                                                        </span>
+                                                                         <textarea rows="5" cols="10" name = "description" class="form-control" placeholder="Article about post" [(ngModel)]="desc">
+                                                                             
+                                                                            </textarea>
+                                                                </div>
+                
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-lock"></span>
+                                                                        </span>
+                                                                         <textarea rows="2" cols="10" name = "genere" class="form-control" placeholder="Add Tages with Comaas" [(ngModel)]="genere">
+                                                                             
+                                                                            </textarea>
+                                                                </div>
+                
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-lock"></span>
+                                                                        </span>
+                                                                        <h3><span class = "label label-danger">Date : </span> </h3> <input type="date" name="date"  [(ngModel)]="date"/>
+                                                                    
+                                                                </div>
+                
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-lock"></span>
+                                                                        </span>
+                                                                        <h3><span class = "label label-danger">Image : </span> </h3> <input type="file" name="img" class="btn btn-primary btn-file" accept="image/*" (change)='handleFile($event.target.files)' />
+                                                                    
+                
+                                                                </div>
+                
+                                                        </div>
+                
+                                                        <div class="form-group text-center">
+                                                            <button (click)='addAction()' class="btn btn-outline-danger btn-lg">Add Post</button>
+    
+                                                        </div>
+                                                        
+                                                </form>
+                                        </div>
+                                </div>
+                        </div>
+                
+                </div>
+
+   
+     
+</div>
+
+<div *ngIf='delete'>
+    
+        <div *ngFor='let post of news;let i = index;'  style=" margin-top: 5%;">
+
+        <div *ngIf='i%3 == 0' class="row">
+            <div class="col-sm-4">
+              <div class="card">
+               
+                     
+                <button  type="button" (click)="deleteThis(i)" class="btn btn-info btn-lg" >Delete</button>
+                      
+                            
+                <div class="card-inner">
+                    <div class="header">
+                        <h2>{{ post.headline }}</h2>
+                        <h3>Date : {{ post.dateAdded}}</h3>
+                    </div>
+                
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-sm-4" *ngIf='i+1 < news.length'>
+              <div class="card">
+                     
+                <button  type="button" (click)="deleteThis(i+1)" class="btn btn-info btn-lg" >Delete</button>
+                
+                      
+                 <div class="card-inner">
+                    <div class="header">
+                        <h2>{{ news[i+1].headline }}</h2>
+                        <h3>Date : {{ news[i+1].dateAdded}}</h3>
+                    </div>
+                
+                  </div>
+              </div>
+            </div>
+    
+            <div class="col-sm-4" *ngIf='i+2 < news.length'>
+              <div class="card">
+               
+                    <button  type="button" (click)="deleteThis(i+2)" class="btn btn-info btn-lg" >Delete</button>
+                      
+                    <div class="card-inner">
+                        <div class="header">
+                            
+                            <h2>{{ news[i+2].headline }}</h2>
+                            <h3>Date : {{ news[i+2].dateAdded}}</h3>
+                        </div>
+                
+                  </div>
+              </div>
+            </div>
+        </div>
+        
+    </div>        
+    
+</div>
+
+<div *ngIf='update'>
+    
+</div>

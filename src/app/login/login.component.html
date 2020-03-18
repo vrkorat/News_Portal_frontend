@@ -1,0 +1,73 @@
+
+<app-header></app-header>
+<body style="background-image: url('../../assets/images/back.jpg'); background-size: 100%; height: 100%; width: 100%;"></body>
+<div *ngIf='display; else elseBlk'  class="text-center" style="margin-top: 5%;">
+        <button (click)="uLogin()" class="btn btn-outline-info">User Login</button>
+        <button (click)="rLogin()" class="btn btn-outline-info">Reporter Login</button>
+        <button (click)="adminLogin()" class="btn btn-outline-info">Admin Login</button>
+</div>
+
+<ng-template #elseBlk>
+         <div class="text-center" style="margin-top: 22%;">
+                <button (click)="uLogin()" class="btn btn-secondary">User Login</button>
+                <button (click)="rLogin()" class="btn btn-secondary">Reporter Login</button>
+                <button (click)="adminLogin()" class="btn btn-secondary">Admin Login</button>
+        </div>
+</ng-template>
+
+
+
+<div *ngIf='display'>
+                <div class="modal-dialog" >
+                                <div class="modal-content">
+                                        <div class="modal-heading">
+                                                        <div *ngIf='user'>
+                                                                        <h2 class="text-center">User Login</h2>
+                                                                   
+                                                        </div>
+                                                        <div *ngIf='reporter'>
+                                                                        <h2 class="text-center">Reporter Login</h2>
+                                                        </div>
+                                                        <div *ngIf='admin'>
+                                                                        <h2 class="text-center">Admin Login</h2>
+                                                        </div>
+                                        </div>
+                                        <hr />
+                                        <div class="modal-body">
+                                                <form action="" role="form">
+                                                        <div class="form-group">
+                                                                <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-user"></span>
+                                                                        </span>
+                                                                        <input type="text" name="uname" (input)="getUname($event)"  class="form-control" placeholder="User Name" />
+                                                                </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-lock"></span>
+                                                                        </span>
+                                                                        <input type="password" name="pass"  class="form-control" placeholder="Password" (input)="getPass($event)"/>
+                
+                                                                </div>
+                
+                                                        </div>
+                
+                                                        <div class="form-group text-center">
+                                                                <button (click)="auth()" class="btn btn-outline-danger btn-lg">Login</button>
+                                                                
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <div class="text-center">
+                                                                                <h3><span class = "label label-danger"> {{ valid }} </span> </h3> 
+                                                                </div>
+                                                                
+                                                        </div>
+                
+                                                </form>
+                                        </div>
+                                </div>
+                        </div>
+                
+</div>

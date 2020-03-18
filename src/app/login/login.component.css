@@ -1,0 +1,16 @@
+.modal-content{
+    background-color: darkcyan;
+}
+.btn-link{
+    color:white;
+}
+.modal-heading h2{
+    color:#ffffff;
+}
+.bg-img
+{
+    background-image: url('/src/assets/images/back.jpg');
+
+    background-repeat: no-repeat; 
+    width: 100%;
+}

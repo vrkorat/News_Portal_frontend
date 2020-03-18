@@ -1,0 +1,109 @@
+<app-header></app-header>
+<div *ngIf='display; else elseBlk'  class="text-center" style="margin-top: 5%;">
+        <button (click)='userTrue()' class="btn btn-outline-secondary">User Signup</button>
+        <button (click)='reporterTrue()' class="btn btn-outline-secondary">Reporter Signup</button>
+</div>
+
+                <ng-template #elseBlk>
+                                <div class="text-center" style="margin-top: 22%;">
+                                <button (click)='userTrue()' class="btn btn-outline-secondary">User Signup</button>
+                                <button (click)='reporterTrue()' class="btn btn-outline-secondary">Reporter Signup</button>
+                        </div>
+                </ng-template>
+
+
+<div *ngIf='display'>
+                <div class="modal-dialog">
+                                <div class="modal-content" style="background-color:#1a0000">
+                                        <div class="modal-heading">
+                                                        <div *ngIf='user'>
+                                                                        <h2 class="text-center" style="color:whitesmoke">User Signup</h2>
+                                                                   
+                                                        </div>
+                                                        <div *ngIf='reporter'>
+                                                                        <h2 class="text-center" style="color:whitesmoke">Reporter Signup</h2>
+                                                        </div>
+                                        </div>
+                                        <hr />
+                                        <div class="modal-body">
+                                                <form action="" role="form">
+                                                        <div class="form-group">
+                                                                <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-user"></span>
+                                                                        </span>
+                                                                        <input type="text" class="form-control" placeholder="Username" name="username" [(ngModel)]="username" required><br>
+                            
+                                                                </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-lock"></span>
+                                                                        </span>
+                                                                        <input type="text" name="fname" class="form-control" placeholder="Firstname" [(ngModel)]="fname" required><br>
+                                                                        
+                
+                                                                </div>
+                
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-user"></span>
+                                                                        </span>
+                                                                        <input type="text" name="lname" placeholder="Lastname" class="form-control" [(ngModel)]="lname" required><br>
+                                                                        
+                                                                </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-user"></span>
+                                                                        </span>
+                                                                        <input type="password" placeholder="Password"  class="form-control" name="password" [(ngModel)]="password" required><br>
+                                                                        
+                                                                </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-user"></span>
+                                                                        </span>
+                                                                        <input type="password" placeholder="Confirm-Password"  class="form-control" name="rpassword" [(ngModel)]="rpassword" required><br>
+                                                                        
+                                                                </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-user"></span>
+                                                                        </span>
+                                                                        <input type="date" placeholder="Date of birth" name="dob" class="form-control" [(ngModel)]="dob" required><br>
+                                                                        
+                                                                </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-user"></span>
+                                                                        </span>
+                                                                        <input type="email" name="email" placeholder="Email" class="form-control" [(ngModel)]="email" required><br>
+                                                                        
+                                                                </div>
+                                                        </div>
+                                                       
+
+                                                        <div class="form-group text-center">
+                                                                 <button type="submit"  (click)="signUp()" class="btn btn-outline-danger btn-lg">Register</button>
+                                                               
+                                                                
+
+                                                        </div>
+                                                       
+                
+                                                </form>
+                                        </div>
+                                </div>
+                        </div>
+</div>
